@@ -2,26 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+body {  
+  background-color: #ffffff;
+  color: #0c0c4f;
+  
+}
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.grouline::before,
+.grouline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px; /* Altura da borda */
+  background-color: #0c0c4f; /* Cor da borda */
+  transition: width 0.3s ease; /* Transição suave */
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.grouline::after {
+  left: auto; /* Posiciona à direita */
+  right: 0;
+}
+
+.grouline:hover::before {
+  width: 50%; /* Largura da borda ao passar o mouse */
+}
+
+.grouline:hover::after {
+  width: 50%;
 }
