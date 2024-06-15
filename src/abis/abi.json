@@ -1,0 +1,40 @@
+[
+    {
+        "type": "constructor",
+        "name": "constructor",
+        "inputs": [
+            {
+                "name": "contract",
+                "type": "core::starknet::contract_address::ContractAddress"
+            }
+        ]
+    },
+    {
+        "type": "struct",
+        "name": "core::integer::u256",
+        "members": [
+            { "name": "low", "type": "core::integer::u128" },
+            { "name": "high", "type": "core::integer::u128" }
+        ]
+    },
+    {
+        "type": "function",
+        "name": "mint",
+        "inputs": [{ "name": "amount", "type": "core::integer::u256" }],
+        "outputs": [],
+        "state_mutability": "view"
+    },
+    {
+        "type": "function",
+        "name": "stake",
+        "inputs": [{ "name": "amount", "type": "core::integer::u256" }],
+        "outputs": [],
+        "state_mutability": "view"
+    },
+    {
+        "type": "event",
+        "name": "cairo::simpleinteraction::Altruist::Event",
+        "kind": "enum",
+        "variants": []
+    }
+]

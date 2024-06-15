@@ -77,11 +77,7 @@ const Navbar = () => {
                                 >
                                     Team
                                 </Link>
-                                <Link
-                                    href={
-                                        "https://app-metronome-o4cl.vercel.app/"
-                                    }
-                                >
+                                <Link href={"/dapp"}>
                                     <button className="rounded-xl px-3 py-2 border-solid border-2 border-primary text-primary hover:bg-baser ease-in-out duration-500 active:bg-primary active:text-white active:duration-0 text-xl font-bold">
                                         Launch App
                                     </button>
