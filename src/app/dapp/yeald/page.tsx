@@ -161,7 +161,7 @@ export default function Yeald() {
                 <div className="flex flex-col w-full max-w-xl gap-8">
                     <div className="inline-flex items-center justify-start ">
                         <Link
-                            href={"/"}
+                            href={"/dapp"}
                             className="flex rounded-xl  px-2 py-1  border-solid border-2 border-primary text-primary hover:bg-primary hover:text-baser ease-in-out duration-500 active:bg-baser active:text-primary active:duration-0 text-lg font-bold"
                         >
                             &lt;

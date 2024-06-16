@@ -1,26 +1,29 @@
 import Link from "next/link";
-import { Separator } from "../ui/separator";
 import { Avatar } from "@mui/material";
+import avatar1 from "../../../public/images/profile2.jpeg";
+import avatar2 from "../../../public/images/profile3.jpeg";
+import avatar3 from "../../../public/images/profile4.jpeg";
+import avatar4 from "../../../public/images/profile5.jpeg";
 
 export const Channels = () => {
     const channels = [
         {
-            logo: "/profile2.jpeg",
+            logo: "../../../public/images/profile2.jpeg",
             name: "Artur",
             link: "/",
         },
         {
-            logo: "/profile3.jpeg",
+            logo: "../../../public/images/profile3.jpeg",
             name: "Lucas",
             link: "/",
         },
         {
-            logo: "/profile4.jpeg",
+            logo: "../../../public/images/profile4.jpeg",
             name: "David",
             link: "/",
         },
         {
-            logo: "/profile5.jpeg",
+            logo: "../../../public/images/profile5.jpeg",
             name: "Marlon",
             link: "/",
         },
@@ -44,9 +47,6 @@ export const Channels = () => {
             <h1 className="pb-4 font-bold tracking-tight text-5xl lg:text-6xl ">
                 Our Team
             </h1>
-            <div className="flex items-center justify-center">
-                <Separator className="mt-3 bg-slate-100/20 h-0.5 w-40" />
-            </div>
 
             <div className="flex items-center justify-center mx-auto sm:space-x-2 md:space-x-4 lg:space-x-8">
                 {channels.map((channel, index) => (
