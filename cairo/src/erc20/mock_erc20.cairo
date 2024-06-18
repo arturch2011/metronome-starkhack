@@ -1,17 +1,16 @@
 #[starknet::contract]
-mod PrincipalToken {
+mod MockERC20 {
     use openzeppelin::access::ownable::ownable::OwnableComponent::InternalTrait;
     use openzeppelin::token::erc20::{ERC20Component, ERC20HooksEmptyImpl};
     use openzeppelin::access::ownable::OwnableComponent;
-
     use starknet::ContractAddress;
 
     component!(path: ERC20Component, storage: erc20, event: ERC20Event);
-    component!(path: OwnableComponent, storage: ownable, event: OwnableEvent);
 
-    // ERC20 Mixin
     #[abi(embed_v0)]
-    impl ERC20MixinImpl = ERC20Component::ERC20MixinImpl<ContractState>;
+    impl ERC20Impl = ERC20Component::ERC20Impl<ContractState>;
+    #[abi(embed_v0)]
+    impl ERC20MetadataImpl = ERC20Component::ERC20MetadataImpl<ContractState>;
     impl ERC20InternalImpl = ERC20Component::InternalImpl<ContractState>;
 
     #[storage]
@@ -32,12 +31,12 @@ mod PrincipalToken {
     }
 
     #[constructor]
-    fn constructor(ref self: ContractState, owner: ContractAddress) {
-        let name = "PrincipalToken";
-        let symbol = "PT";
-        // Set the initial owner of the contract
-        self.ownable.initializer(owner);
+    fn constructor(ref self: ContractState, initial_supply: u256, recipient: ContractAddress) {
+        let name = "MockToken";
+        let symbol = "MTK";
+
         self.erc20.initializer(name, symbol);
+        self.erc20._mint(recipient, initial_supply);
     }
 
     #[external(v0)]
