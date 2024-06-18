@@ -5,3 +5,4 @@ jspm_packages
 
 .env
 .env.local
+.snfoundry_cache
