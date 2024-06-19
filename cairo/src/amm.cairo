@@ -47,6 +47,11 @@ mod Amm {
         self.totalSupply -= amount;
     }
 
+    fn _updade(ref self: ContractState, reserve0: u256, reserve1: u256) {
+        self.reserve0.write(self.reserve0.read() - reserve0);
+        self.reserve1.write(self.reserve1.read() - reserve1);
+    }
+
     #[external(v0)]
     fn swap(tokenIn: ContractAddress, amountIn: u256) -> u256 {
         assert(
@@ -58,17 +63,35 @@ mod Amm {
         let incTk = IMintableDispacher { contract_address: tokenIn };
         incTk.transfer_from(get_caller_address(), get_contract_address(), amountIn);
 
-        if tokenIn == self.token0.read() {// Transfer token1 to caller    
-
-        } else {// Transfer token2 to caller
-
+        if tokenIn == self.token0.read() { // Transfer token1 to caller    
+            transfer_from(self.token0.read(), get_caller_address(), amountIn);
+        } else { // Transfer token2 to caller
+            transfer_from(self.token1.read(), get_caller_address(), amountIn);
         }
-    // Calculate token out (inlcuding fees) fee 0.3%
+
+        // Calculate token out (inlcuding fees) fee 0.3%
+        let amountInWithFee = (amountIn * 997) / 1000;
+    //let amountOut:u256 = 
+
     // Transfer token out to msg.sender
     // Update the reserves
     }
 
-    fn add_liquidity() {}
+    fn add_liquidity(ref self: ContractState, token_address: ContractAddress, token_amount: u256) {
+        assert(token_amount > 0, 'deposit amount has to be > 0');
+        let pool_balance = self.get_pool_balance(token_address);
 
-    fn remove_liquidity() {}
+        let caller: ContractAddress = get_caller_address();
+        let balance = IERC20Dispatcher { contract_address: token_address }.balance_of(caller);
+        assert(balance >= token_amount.into(), 'balance should be >= deposit');
+
+        let account_balance = self.get_account_balance(caller, token_address);
+        self.pool_balance.write(token_address, pool_balance + token_amount);
+    }
+
+    fn remove_liquidity(
+        ref self: ContractState, token_address: ContractAddress, token_amount: u256
+    ) {
+        let caller: ContractAddress = get_caller_address();
+    }
 }
