@@ -8,22 +8,22 @@ import avatar4 from "../../../public/images/profile5.jpeg";
 export const Channels = () => {
     const channels = [
         {
-            logo: "../../../public/images/profile2.jpeg",
+            logo: "/images/profile2.jpeg",
             name: "Artur",
             link: "/",
         },
         {
-            logo: "../../../public/images/profile3.jpeg",
+            logo: "images/profile3.jpeg",
             name: "Lucas",
             link: "/",
         },
         {
-            logo: "../../../public/images/profile4.jpeg",
+            logo: "images/profile4.jpeg",
             name: "David",
             link: "/",
         },
         {
-            logo: "../../../public/images/profile5.jpeg",
+            logo: "images/profile5.jpeg",
             name: "Marlon",
             link: "/",
         },

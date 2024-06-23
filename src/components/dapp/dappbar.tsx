@@ -76,16 +76,16 @@ const Dappbar = () => {
                             </Link>
 
                             <Link
-                                href="/"
+                                href="/dapp"
                                 className="text-dprimary text-sm hover:text-primary  p-1   font-bold"
                             >
                                 PoC
                             </Link>
                             <Link
-                                href="/"
+                                href="/dapp/trade"
                                 className="text-dprimary text-sm hover:text-primary  p-1   font-bold"
                             >
-                                Markets
+                                Trade
                             </Link>
                             <Link
                                 href="/"

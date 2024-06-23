@@ -20,7 +20,10 @@ const config: Config = {
         baser: "#0c0c4f",
         cbase: "#3f3f9a",
         dbase: "#060627",
-      }
+      },
+      gridTemplateColumns: {
+        tres: "49fr 2fr 49fr",
+      },
     },
   },
   plugins: [],
