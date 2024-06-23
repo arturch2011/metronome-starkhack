@@ -67,8 +67,8 @@ const BlockSec = () => {
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ delay: 0.2, duration: 0.5 }}
                 >
-                    Many users leverage liquidity pools as a form of "fixed
-                    income," but seasoned investors crave something more: yield
+                    Many users leverage liquidity pools as a form of fixed
+                    income, but seasoned investors crave something more: yield
                     trading, a common practice in traditional markets, yet
                     untapped in Web3.
                 </motion.p>
