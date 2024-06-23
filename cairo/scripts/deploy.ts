@@ -42,9 +42,9 @@ async function main() {
             constructorCalldata: constructor,
         });
         console.log(
-            `✅ Contract has been deploy with the address: ${deployResponse.deploy.address}`
+            `✅ YieldToken Contract has been deploy with the address: ${deployResponse.deploy.address}`
         );
-        console.log(`✅ Contract has been deploy data ${deployResponse.deploy.calldata}`);
+        // console.log(`✅ Contract has been deploy data ${deployResponse.deploy.calldata}`);
     } catch (error: any) {
         console.log("ERRO NO DEPLOYYYY");
         console.log(error);
